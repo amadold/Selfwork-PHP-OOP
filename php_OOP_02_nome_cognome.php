@@ -17,8 +17,30 @@ class WarmBlood extends Vertebrate
     }
 }
 
-class Mammal extends WarmBlood {}
-class Bird extends WarmBlood {}
+class Mammal extends WarmBlood
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->mammal();
+    }
+    protected function mammal()
+    {
+        echo "Sono un mammifero\n";
+    }
+}
+class Bird extends WarmBlood
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->bird();
+    }
+    protected function bird()
+    {
+        echo "Sono un uccello\n";
+    }
+}
 
 class ColdBlood extends Vertebrate
 {
@@ -29,9 +51,42 @@ class ColdBlood extends Vertebrate
     }
 }
 
-class Fish extends ColdBlood {}
-class Reptile extends ColdBlood {}
-class Amphibian extends ColdBlood {}
+class Fish extends ColdBlood
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->fish();
+    }
+    protected function fish()
+    {
+        echo "Sono un pesce\n";
+    }
+}
+class Reptile extends ColdBlood
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->reptile();
+    }
+    protected function reptile()
+    {
+        echo "Sono un rettile\n";
+    }
+}
+class Amphibian extends ColdBlood
+{
+    public function __construct()
+    {
+        parent::__construct();
+        $this->amphibian();
+    }
+    protected function amphibian()
+    {
+        echo "Sono un anfibio\n";
+    }
+}
 
 $mammal = new Mammal();
 $bird = new Bird();
