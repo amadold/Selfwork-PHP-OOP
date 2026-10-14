@@ -4,7 +4,11 @@ class Vertebrate
 {
     public function __construct()
     {
-        echo "Sono un animale vertebrato\n";
+        $this->vertebrate();
+    }
+    protected function vertebrate()
+    {
+        echo "Sono un animale Vertebrato\n";
     }
 }
 
@@ -13,7 +17,11 @@ class WarmBlood extends Vertebrate
     public function __construct()
     {
         parent::__construct();
-        echo "Sono un animale a sangue caldo\n";
+        $this->warmBlood();
+    }
+    protected function warmBlood()
+    {
+        echo "Sono un animale a Sangue Caldo\n";
     }
 }
 
@@ -26,7 +34,7 @@ class Mammal extends WarmBlood
     }
     protected function mammal()
     {
-        echo "Sono un mammifero\n";
+        echo "Roar!\n";
     }
 }
 class Bird extends WarmBlood
@@ -38,7 +46,7 @@ class Bird extends WarmBlood
     }
     protected function bird()
     {
-        echo "Sono un uccello\n";
+        echo "Cip! Cip!\n";
     }
 }
 
@@ -47,7 +55,11 @@ class ColdBlood extends Vertebrate
     public function __construct()
     {
         parent::__construct();
-        echo "Sono un animale a sangue freddo\n";
+        $this->coldBlood();
+    }
+    protected function coldBlood()
+    {
+        echo "Sono un animale a Sangue Freddo\n";
     }
 }
 
@@ -60,7 +72,7 @@ class Fish extends ColdBlood
     }
     protected function fish()
     {
-        echo "Sono un pesce\n";
+        echo "Splash!\n";
     }
 }
 class Reptile extends ColdBlood
@@ -72,7 +84,7 @@ class Reptile extends ColdBlood
     }
     protected function reptile()
     {
-        echo "Sono un rettile\n";
+        echo "Sssssss!\n";
     }
 }
 class Amphibian extends ColdBlood
@@ -84,7 +96,7 @@ class Amphibian extends ColdBlood
     }
     protected function amphibian()
     {
-        echo "Sono un anfibio\n";
+        echo "Gre! Gre!\n";
     }
 }
 
