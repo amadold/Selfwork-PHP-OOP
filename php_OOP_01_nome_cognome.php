@@ -8,98 +8,68 @@ class Continent
     {
         $this->nameContinent = $continent;
     }
-
-    public function getMyCurrentLocation()
-    {
-        return "Mi trovo in $this->nameContinent, ";
-    }
 }
 
-$myLocation = new Continent('Europa');
-echo $myLocation->getMyCurrentLocation();
 
-class Country
+class Country extends Continent
 {
     public $nameCountry;
 
-    public function __construct($country)
+    public function __construct($continent, $country)
     {
+        parent::__construct($continent);
         $this->nameCountry = $country;
-    }
-
-    public function getMyCurrentLocation()
-    {
-        return "$this->nameCountry, ";
     }
 }
 
-$myLocation = new Country('Italia');
-echo $myLocation->getMyCurrentLocation();
-
-class Region
+class Region extends Country
 {
     public $nameRegion;
 
-    public function __construct($region)
+    public function __construct($continent, $country, $region)
     {
+        parent::__construct($continent, $country);
         $this->nameRegion = $region;
-    }
-    public function getMyCurrentLocation()
-    {
-        return "$this->nameRegion, ";
     }
 }
 
-$myLocation = new Region('Puglia');
-echo $myLocation->getMyCurrentLocation();
-
-class Province
+class Province extends Region
 {
     public $nameProvince;
 
-    public function __construct($province)
+    public function __construct($continent, $country, $region, $province)
     {
+        parent::__construct($continent, $country, $region);
         $this->nameProvince = $province;
-    }
-    public function getMyCurrentLocation()
-    {
-        return "$this->nameProvince, ";
     }
 }
 
-$myLocation = new Province('BA');
-echo $myLocation->getMyCurrentLocation();
-
-class City
+class City extends Province
 {
     public $nameCity;
 
-    public function __construct($city)
+    public function __construct($continent, $country, $region, $province, $city)
     {
+        parent::__construct($continent, $country, $region, $province);
         $this->nameCity = $city;
-    }
-    public function getMyCurrentLocation()
-    {
-        return "$this->nameCity, ";
     }
 }
 
-$myLocation = new City('Bari');
-echo $myLocation->getMyCurrentLocation();
-
-class Street
+class Street extends City
 {
     public $nameStreet;
 
-    public function __construct($street)
+    public function __construct($continent, $country, $region, $province, $city, $street)
     {
+        parent::__construct($continent, $country, $region, $province, $city);
         $this->nameStreet = $street;
     }
     public function getMyCurrentLocation()
     {
-        return "$this->nameStreet";
+        return "Mi trovo in $this->nameContinent, $this->nameCountry, $this->nameRegion, $this->nameProvince, $this->nameCity, $this->nameStreet";
     }
 }
 
-$myLocation = new Street('Strada San Giorgio Martire 2D');
+$myLocation = new Street('Europa', 'Italia', 'Puglia', 'BA', 'Bari', 'Strada San Giorgio Martire 2D');
+
 echo $myLocation->getMyCurrentLocation();
