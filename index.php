@@ -2,11 +2,6 @@
 
 abstract class Category
 {
-    public $category;
-    public function __construct($category)
-    {
-        $this->category = $category;
-    }
     abstract public function getMyCategory();
 }
 
@@ -14,7 +9,7 @@ class Attualita extends Category
 {
     public function getMyCategory()
     {
-        return "Categoria: " . $this->category . "\n";
+        return "Attualità";
     }
 }
 
@@ -23,7 +18,7 @@ class Sport extends Category
 
     public function getMyCategory()
     {
-        return "Categoria: " . $this->category . "\n";
+        return "Sport";
     }
 }
 
@@ -31,7 +26,7 @@ class Gossip extends Category
 {
     public function getMyCategory()
     {
-        return "Categoria: " . $this->category . "\n";
+        return "Gossip";
     }
 }
 
@@ -39,17 +34,17 @@ class Storia extends Category
 {
     public function getMyCategory()
     {
-        return "Categoria: " . $this->category . "\n";
+        return "Storia";
     }
 }
 
 class Post
 {
     public $title;
-    public $category;
+    public Category $category;
     public $tag;
 
-    public function __construct($title, $category, $tag)
+    public function __construct($title, Category $category, $tag)
     {
         $this->title = $title;
         $this->category = $category;
@@ -58,9 +53,9 @@ class Post
 
     public function getMyCategory()
     {
-        return "Titolo: $this->title\nCategoria: $this->category\nTag: $this->tag";
+        return "Titolo: $this->title\nCategoria: {$this->category->getMyCategory()}\nTag: $this->tag";
     }
 }
 
-$post = new Post('UEFA Champions League', 'Sport', 'Calcio');
+$post = new Post('UEFA Champions League', new Sport(), 'Calcio');
 echo $post->getMyCategory();
