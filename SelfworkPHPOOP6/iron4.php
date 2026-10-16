@@ -1,16 +1,9 @@
 <?php
 
-
-require_once('index.php');
-
-
 class Iron4 extends IronMan
 {
     public function getArmour()
     {
-        return "Quantità: " . self::$counter++ . "\n";
+        return "IronMan 4\n";
     }
 }
-
-$iron4 = new Iron4();
-echo $iron4->getArmour();

@@ -1,17 +1,17 @@
 <?php
 
 
-require('iron1.php');
-require('iron2.php');
-require('iron3.php');
-require('iron4.php');
+require_once('iron1.php');
+require_once('iron2.php');
+require_once('iron3.php');
+require_once('iron4.php');
 
 
 abstract class IronMan
 {
-    public static $counter = 1;
+    public static $counter = 0;
 
-    public function __counstruct()
+    public function __construct()
     {
         self::$counter++;
     }
@@ -19,14 +19,15 @@ abstract class IronMan
     abstract public function getArmour();
 }
 
-class Quantity extends IronMan
-{
-    public function getArmour()
-    {
-        $quantity = self::$counter - 1;
-        return "Quantità totale: " . $quantity . "\n";
-    }
+$suit = ["Iron1", "Iron2", "Iron3", "Iron4"];
+$army = [];
+
+for ($i = 0; $i < rand(1, 10); $i++) {
+    $armyGenerated = $suit[array_rand($suit)];
+    $army[] = new $armyGenerated();
 }
 
-$total = new Quantity();
-echo $total->getArmour();
+foreach ($army as $armySuit) {
+    echo $armySuit->getArmour();
+}
+echo "Quantità: " . IronMan::$counter;
