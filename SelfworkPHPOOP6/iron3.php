@@ -1,9 +1,14 @@
 <?php
 
-class Iron3 extends IronMan
+abstract class Legs
 {
-    public function getArmour()
+    abstract public function getLegs();
+}
+
+class Gravity extends Legs
+{
+    public function getLegs()
     {
-        return "IronMan 3\n";
+        return "Gravity boots activated!\n";
     }
 }

@@ -1,9 +1,14 @@
 <?php
 
-class Iron2 extends IronMan
+abstract class LeftArm
 {
-    public function getArmour()
+    abstract public function getLeftArm();
+}
+
+class Shield extends LeftArm
+{
+    public function getLeftArm()
     {
-        return "IronMan 2\n";
+        return "Shield activated!\n";
     }
 }

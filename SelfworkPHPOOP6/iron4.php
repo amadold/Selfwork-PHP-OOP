@@ -1,9 +1,14 @@
 <?php
 
-class Iron4 extends IronMan
+abstract class Back
 {
-    public function getArmour()
+    abstract public function getBack();
+}
+
+class JetPack extends Back
+{
+    public function getBack()
     {
-        return "IronMan 4\n";
+        return "Jet pack activated!\n";
     }
 }
